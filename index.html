@@ -49,6 +49,7 @@
             margin-bottom: 30px;
             font-weight: bold;
             line-height: 1.4;
+            border: 2px solid var(--frog-green);
         }
 
         #counter { color: var(--pink-soft); font-size: 1.2rem; }
@@ -57,14 +58,15 @@
             position: absolute;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
-            z-index: 20; /* Prioridad de click */
+            z-index: 20; 
             -webkit-tap-highlight-color: transparent;
         }
         
+        /* --- NUEVO DISEÑO DE RANITA TIERNA --- */
         .frog-img {
-            width: 65px;
-            height: 65px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 45 45'%3E%3Cpath fill='%23a5d6a7' d='M39.6,34.2c0,0-6.1,10.8-17.1,10.8S5.4,34.2,5.4,34.2S0,28.8,0,19.8c0-6.1,3.6-11.3,9-13.5C9,2.7,12.6,0,17.1,0 s8.1,2.7,8.1,6.3c5.4,2.2,9,7.4,9,13.5C34.2,28.8,39.6,34.2,39.6,34.2z M11.7,16.2c-2.5,0-4.5,2-4.5,4.5s2,4.5,4.5,4.5 s4.5-2,4.5-4.5S14.2,16.2,11.7,16.2z M33.3,16.2c-2.5,0-4.5,2-4.5,4.5s2,4.5,4.5,4.5s4.5-2,4.5-4.5S35.8,16.2,33.3,16.2z'/%3E%3C/svg%3E");
+            width: 70px;
+            height: 60px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Ccircle cx='30' cy='30' r='15' fill='%23a5d6a7'/%3E%3Ccircle cx='70' cy='30' r='15' fill='%23a5d6a7'/%3E%3Cellipse cx='50' cy='50' rx='45' ry='30' fill='%23a5d6a7'/%3E%3Ccircle cx='30' cy='30' r='6' fill='white'/%3E%3Ccircle cx='70' cy='30' r='6' fill='white'/%3E%3Ccircle cx='30' cy='30' r='3' fill='black'/%3E%3Ccircle cx='70' cy='30' r='3' fill='black'/%3E%3Cpath d='M35 55 Q50 65 65 55' stroke='%23557b5e' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-size: contain;
             filter: drop-shadow(0px 4px 2px rgba(0,0,0,0.1));
@@ -132,32 +134,33 @@
 
         .heart { color: var(--pink-soft); font-size: 2rem; margin-top: 20px; display: inline-block; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-        /* Posiciones ajustadas para evitar fallos de click */
+        /* Posiciones */
         #frog1 { top: 15%; left: 10%; }
         #frog2 { top: 55%; right: 10%; }
         #frog3 { top: 35%; right: 20%; }
         #frog4 { bottom: 20%; left: 15%; }
         #frog5 { top: 10%; right: 5%; }
-        #frog6 { top: 75%; left: 50%; transform: translateX(-50%); }
+        #frog6 { top: 78%; left: 45%; } /* Ajustada para click fácil */
     </style>
 </head>
 <body>
 
-    <h1>Felices 6 Años, mi Ranita 🐸</h1>
+    <h1>Felices 6 Años, mi burrita 🐸</h1>
     <div class="subtitle">
-        ¡Encuentra las 6 ranitas escondidas para ver tu regalo! <br>
+        ¡Aprieta las 6 ranitas para ver tu regalo! <br>
         Encontradas: <span id="counter">0</span>/6
     </div>
 
     <div id="pop-up" class="pop-message">¡Encontraste una!</div>
 
-    <div class="frog-container" id="frog1" onclick="foundFrog(this, 'Te amo porque despues de 6 años sigues siendo mi burrita mona')"><div class="frog-img"></div></div>
-    <div class="frog-container" id="frog2" onclick="foundFrog(this, 'Te amo porque siempre estas ahi para mi.')"><div class="frog-img"></div></div>
+    <div class="frog-container" id="frog1" onclick="foundFrog(this, 'Te amo porque después de 6 años sigues siendo mi burrita mona')"><div class="frog-img"></div></div>
+    <div class="frog-container" id="frog2" onclick="foundFrog(this, 'Te amo porque siempre estás ahí para mí.')"><div class="frog-img"></div></div>
     <div class="frog-container" id="frog3" onclick="foundFrog(this, 'Te amo porque me cocinas cosas wuenas')"><div class="frog-img"></div></div>
     <div class="frog-container" id="frog4" onclick="foundFrog(this, 'Te amo mi monita')"><div class="frog-img"></div></div>
     <div class="frog-container" id="frog5" onclick="foundFrog(this, 'Te amo porque siempre vas a ser mi shiquilla.')"><div class="frog-img"></div></div>
-    <div class="frog-container" id="frog6" onclick="foundFrog(this, 'Te amo porque no siempre me entiendes pero tienes paciencia para quererme.')"><div class="frog-img"></div></div>
+    <div class="frog-container" id="frog6" onclick="foundFrog(this, 'Te amo porque tienes paciencia para quererme.')"><div class="frog-img"></div></div>
 
     <div id="final-reward">
         <h2>Las encontraste todasss mi shiquilla 🎉</h2>
@@ -170,12 +173,12 @@
         </div>
 
         <div class="goals-container">
-            <strong style="display: block; margin-bottom: 10px; color: var(--text-dark);">🚀 Próximos Objetivos:</strong>
-            <div class="goal-item"><span class="goal-icon">✅</span> 6 años y muchos mas.</div>
+            <strong style="display: block; margin-bottom: 10px; color: var(--text-dark);"> Próximos Objetivos:</strong>
+            <div class="goal-item"><span class="goal-icon">✅</span> 6 años y muchos más.</div>
             <div class="goal-item"><span class="goal-icon">🔜</span> Picnic juntos.</div>
             <div class="goal-item"><span class="goal-icon">🔜</span> Nuestra casita.</div>
-            <div class="goal-item"><span class="goal-icon">🎓</span> Nuestros titulos universitarios.</div>
-            <div class="goal-item"><span class="goal-icon">✈️</span> Proximo viaje a Japon.</div>
+            <div class="goal-item"><span class="goal-icon">🎓</span> Nuestros títulos universitarios.</div>
+            <div class="goal-item"><span class="goal-icon">✈️</span> Próximo viaje a Japón.</div>
             <div class="goal-item"><span class="goal-icon">❤️</span> Mi husky!!!!!!!!!.</div>
         </div>
 
@@ -184,12 +187,10 @@
 
     <script>
         let frogsFound = 0;
-        const totalFrogs = 6;
-
         function foundFrog(element, message) {
             if (element.style.pointerEvents === 'none') return;
 
-            element.style.transform = "scale(1.5) rotate(360deg)";
+            element.style.transform = "scale(0) rotate(360deg)"; // Efecto de desaparición
             element.style.opacity = "0";
             element.style.pointerEvents = "none";
 
@@ -200,11 +201,9 @@
             popUp.innerText = message + " 🐸";
             popUp.classList.add('show');
             
-            setTimeout(() => {
-                popUp.classList.remove('show');
-            }, 2000);
+            setTimeout(() => popUp.classList.remove('show'), 2000);
 
-            if (frogsFound === totalFrogs) {
+            if (frogsFound === 6) {
                 setTimeout(() => {
                     confettiEffect();
                     const reward = document.getElementById('final-reward');
@@ -226,15 +225,8 @@
                 confetti.style.borderRadius = '50%';
                 confetti.style.zIndex = '999';
                 document.body.appendChild(confetti);
-                
-                const animation = confetti.animate([
-                    { transform: 'translateY(0) rotate(0)', opacity: 1 },
-                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random()*360}deg)`, opacity: 0 }
-                ], {
-                    duration: Math.random() * 2000 + 1000,
-                    easing: 'cubic-bezier(.25,.46,.45,.94)'
-                });
-                animation.onfinish = () => confetti.remove();
+                confetti.animate([{transform:'translateY(0)'},{transform:`translateY(${window.innerHeight}px)`}], 
+                {duration: Math.random()*2000+1000, easing:'linear'}).onfinish = () => confetti.remove();
             }
         }
     </script>
