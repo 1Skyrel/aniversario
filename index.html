@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sexto Aniversario</title>
+    <style>
+        :root {
+            --dark: #2d3436;
+            --heart: #d63031;
+            --accent: #0984e3;
+            --bg: #dfe6e9;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg);
+            color: var(--dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 2px;
+            box-shadow: 10px 10px 0px var(--dark);
+            border: 2px solid var(--dark);
+        }
+        h1 { font-size: 1.5rem; border-bottom: 2px solid var(--dark); padding-bottom: 10px; }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            border: 1px solid var(--dark);
+            padding: 10px;
+            text-align: center;
+        }
+        .stat-card span { display: block; font-size: 1.2rem; font-weight: bold; color: var(--heart); }
+        
+        .photo-space {
+            width: 100%;
+            height: 250px;
+            background: #ccc;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--dark);
+            overflow: hidden;
+        }
+        .photo-space img { width: 100%; height: 100%; object-fit: cover; }
+
+        .btn-interact {
+            width: 100%;
+            padding: 15px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn-interact:active { transform: scale(0.98); }
+        
+        #reason-text {
+            margin-top: 15px;
+            min-height: 50px;
+            font-style: italic;
+            text-align: center;
+            color: var(--accent);
+        }
+
+        .future-commit {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #636e72;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>SISTEMA_ANIVERSARIO_V6.0</h1>
+    <p>> Usuario: Fran & Gabi</p>
+    
+    <div class="stat-grid">
+        <div class="stat-card"><span>2.190</span> Días</div>
+        <div class="stat-card"><span>6</span> Años</div>
+        <div class="stat-card"><span>72</span> Meses</div>
+    </div>
+
+    <div class="photo-space">
+        <img src="tu-mejor-foto.jpg" alt="Nosotros">
+    </div>
+
+    <p>> Presiona para generar una razón:</p>
+    <button class="btn-interact" onclick="generarRazon()">EJECUTAR_MOTIVO.EXE</button>
+    <div id="reason-text">Esperando comando...</div>
+
+    <div class="future-commit">
+        <p>// TODO: Próximos objetivos</p>
+        <p>- [ ] Salida picnic.</p>
+        <p>- [ ] Nuestros titulos.</p>
+        <p>- [ ] Nuestra casita.</p>
+        <p>- [ ] Nuestro husky!!!!!.</p>
+        <p>- [ ] Ir algun dia a un evento/mundial de LOL/VALORANT.</p>
+        <p>- [ ] Viaje pendiente a Japon<3.</p>
+    </div>
+</div>
+
+<script>
+    const razones = [
+        "Porque despues de 6 años sigues siendo mi burrita mona.",
+        "Por siempre estas ahi para mi.",
+        "Porque me cocinas cosas wuenas",
+        "Porque te amo.",
+        "Porque siempre vas a ser mi shiquilla.",
+        "Porque no siempre me entiendes pero tienes paciencia para quererme."
+    ];
+
+    function generarRazon() {
+        const display = document.getElementById("reason-text");
+        const random = Math.floor(Math.random() * razones.length);
+        display.innerText = "> " + razones[random];
+    }
+</script>
+
+</body>
+</html>
