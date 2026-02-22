@@ -3,134 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sexto Aniversario</title>
+    <title>Nuestra Historia - 6 Años</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark: #2d3436;
-            --heart: #d63031;
-            --accent: #0984e3;
-            --bg: #dfe6e9;
+            --primary: #ff4d6d;
+            --secondary: #c9184a;
+            --glass: rgba(255, 255, 255, 0.85);
         }
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: var(--bg);
-            color: var(--dark);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            max-width: 500px;
-            width: 100%;
-            background: white;
-            padding: 30px;
-            border-radius: 2px;
-            box-shadow: 10px 10px 0px var(--dark);
-            border: 2px solid var(--dark);
-        }
-        h1 { font-size: 1.5rem; border-bottom: 2px solid var(--dark); padding-bottom: 10px; }
-        .stat-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .stat-card {
-            border: 1px solid var(--dark);
-            padding: 10px;
-            text-align: center;
-        }
-        .stat-card span { display: block; font-size: 1.2rem; font-weight: bold; color: var(--heart); }
-        
-        .photo-space {
-            width: 100%;
-            height: 250px;
-            background: #ccc;
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed var(--dark);
-            overflow: hidden;
-        }
-        .photo-space img { width: 100%; height: 100%; object-fit: cover; }
 
-        .btn-interact {
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            /* Fondo con gradiente animado para que no se vea estático */
+            background: linear-gradient(-45deg, #ff758c, #ff7eb3, #74ebd5, #acb6e5);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .main-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+            width: 90%;
+            max-width: 450px;
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 15px 5px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-box span {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .stat-box label {
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        .photo-frame {
             width: 100%;
-            padding: 15px;
-            background: var(--dark);
+            height: 280px;
+            background: #eee;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-love {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
             color: white;
             border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
             cursor: pointer;
-            font-family: inherit;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .btn-interact:active { transform: scale(0.98); }
-        
-        #reason-text {
-            margin-top: 15px;
-            min-height: 50px;
-            font-style: italic;
-            text-align: center;
-            color: var(--accent);
+            width: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.3);
         }
 
-        .future-commit {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #636e72;
-            border-top: 1px solid #ccc;
-            padding-top: 10px;
+        .btn-love:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(255, 77, 109, 0.4);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--secondary);
+            min-height: 40px;
+            font-size: 0.95rem;
+        }
+
+        .heart-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 20px;
+            animation: beat 1.2s infinite;
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>SISTEMA_ANIVERSARIO_V6.0</h1>
-    <p>> Usuario: Fran & Gabi</p>
+<div class="main-card">
+    <h1>Fran & Gabi</h1>
+    <div class="subtitle">6 años juntoo</div>
+
+    <div class="stats-container">
+        <div class="stat-box">
+            <span>2.190</span>
+            <label>Días</label>
+        </div>
+        <div class="stat-box">
+            <span>72</span>
+            <label>Meses</label>
+        </div>
+        <div class="stat-box">
+            <span>6</span>
+            <label>Años</label>
+        </div>
+    </div>
+
+    <div class="photo-frame">
+        <img src="tu-mejor-foto.jpg" alt="Nosotrooo">
+    </div>
+
+    <button class="btn-love" onclick="newMessage()">Ver una razón para amarte</button>
     
-    <div class="stat-grid">
-        <div class="stat-card"><span>2.190</span> Días</div>
-        <div class="stat-card"><span>6</span> Años</div>
-        <div class="stat-card"><span>72</span> Meses</div>
-    </div>
+    <div id="message">Haz clic arriba...</div>
 
-    <div class="photo-space">
-        <img src="tu-mejor-foto.jpg" alt="Nosotros">
-    </div>
-
-    <p>> Presiona para generar una razón:</p>
-    <button class="btn-interact" onclick="generarRazon()">EJECUTAR_MOTIVO.EXE</button>
-    <div id="reason-text">Esperando comando...</div>
-
-    <div class="future-commit">
-        <p>// TODO: Próximos objetivos</p>
-        <p>- [ ] Salida picnic.</p>
-        <p>- [ ] Nuestros titulos.</p>
-        <p>- [ ] Nuestra casita.</p>
-        <p>- [ ] Nuestro husky!!!!!.</p>
-        <p>- [ ] Ir algun dia a un evento/mundial de LOL/VALORANT.</p>
-        <p>- [ ] Viaje pendiente a Japon<3.</p>
-    </div>
+    <div class="heart-icon">❤️</div>
 </div>
 
 <script>
-    const razones = [
+    const reasons = [
         "Porque despues de 6 años sigues siendo mi burrita mona.",
-        "Por siempre estas ahi para mi.",
+        "Porque siempre estas ahi para mi.",
         "Porque me cocinas cosas wuenas",
-        "Porque te amo.",
+        "Porque te amo mi monita.",
         "Porque siempre vas a ser mi shiquilla.",
         "Porque no siempre me entiendes pero tienes paciencia para quererme."
     ];
 
-    function generarRazon() {
-        const display = document.getElementById("reason-text");
-        const random = Math.floor(Math.random() * razones.length);
-        display.innerText = "> " + razones[random];
+    function newMessage() {
+        const display = document.getElementById("message");
+        const random = Math.floor(Math.random() * reasons.length);
+        display.style.opacity = 0;
+        setTimeout(() => {
+            display.innerText = reasons[random];
+            display.style.opacity = 1;
+        }, 200);
     }
 </script>
 
