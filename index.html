@@ -2,199 +2,228 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Historia - 6 Años</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>6 Años Juntos 🐸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Varela+Round&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ff4d6d;
-            --secondary: #c9184a;
-            --glass: rgba(255, 255, 255, 0.85);
+            /* Paleta de colores suaves */
+            --bg-soft: #e8f5e9;      /* Verde menta muy claro */
+            --bg-accent: #c8e6c9;    /* Verde un poco más fuerte */
+            --text-dark: #557b5e;    /* Verde bosque suave para texto */
+            --frog-green: #a5d6a7;   /* Color de las ranitas */
+            --cream: #fffbf0;        /* Color crema para tarjetas */
+            --pink-soft: #f8bbd0;    /* Rosado pastel para detalles */
         }
 
         body {
             margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            /* Fondo con gradiente animado para que no se vea estático */
-            background: linear-gradient(-45deg, #ff758c, #ff7eb3, #74ebd5, #acb6e5);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+            padding: 20px;
             min-height: 100vh;
+            font-family: 'Varela Round', sans-serif;
+            background-color: var(--bg-soft);
+            background-image: radial-gradient(circle at 10% 20%, var(--bg-accent) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, var(--bg-accent) 0%, transparent 20%);
+            color: var(--text-dark);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .main-card {
-            background: var(--glass);
-            backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
-            width: 90%;
-            max-width: 450px;
-            padding: 40px 20px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.3);
+            overflow-x: hidden;
+            position: relative; /* Necesario para las ranas escondidas */
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            color: var(--secondary);
-            font-size: 2.2rem;
-            margin-bottom: 5px;
+            font-family: 'Fredoka', sans-serif;
+            color: var(--text-dark);
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #fff;
         }
 
         .subtitle {
-            font-size: 0.9rem;
-            color: #666;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            text-align: center;
+            background: var(--cream);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(85, 123, 94, 0.1);
             margin-bottom: 30px;
+            font-weight: bold;
         }
 
-        .stats-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 30px;
+        #counter { color: var(--pink-soft); font-size: 1.2rem; }
+
+        /* --- EL JUEGO DE LAS RANITAS --- */
+        .frog-container {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            z-index: 10; /* Asegura que estén por encima */
+        }
+        .frog-container:hover { transform: scale(1.1) rotate(5deg); }
+        
+        /* Imagen de la ranita (SVG embebido para que no cargues archivos) */
+        .frog-img {
+            width: 60px;
+            height: 60px;
+            /* Esta es una imagen de una ranita cute en formato texto */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23a5d6a7' d='M389.8 143.3c-4.9-27-23.3-49.1-49.5-58.6-14.8-5.4-30.3-6.4-45.4-4.8-13.4-21.5-33.9-38.9-58.6-48.7-51.5-20.5-110.4-2-140.3 43.5-8.4 12.8-14.1 26.9-17.4 41.7-23.7 14.7-37.7 41.2-36.4 69.1 1 22.9 11 43.3 26.5 58.1C62 262.8 57.4 286 57.4 310c0 69.5 69.2 126 154.6 126s154.6-56.5 154.6-126c0-24-4.6-47.2-12.8-67.5 17-14 28.3-35 29.5-58.6 1.1-21.2-6.6-41.5-23.5-54.6zM256 128c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zm-96 64c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm48 128c-35.3 0-64-14.3-64-32s28.7-32 64-32 64 14.3 64 32-28.7 32-64 32z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            filter: drop-shadow(0px 4px 2px rgba(0,0,0,0.1));
         }
 
-        .stat-box {
-            background: white;
-            padding: 15px 5px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        /* Mensajes emergentes al encontrar una rana */
+        .pop-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: var(--cream);
+            padding: 20px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(85, 123, 94, 0.2);
+            font-size: 1.1rem;
+            text-align: center;
+            border: 3px solid var(--frog-green);
+            z-index: 100;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none; /* Para que no bloquee clicks */
         }
+        .pop-message.show { transform: translate(-50%, -50%) scale(1); }
 
-        .stat-box span {
-            display: block;
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.2rem;
+        /* --- CARTA FINAL --- */
+        #final-reward {
+            display: none; /* Oculto al principio */
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(85, 123, 94, 0.15);
+            border: 4px solid var(--pink-soft);
+            margin-top: 50px;
+            animation: slideUp 0.8s ease-out;
         }
-
-        .stat-box label {
-            font-size: 0.7rem;
-            color: #888;
-        }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         .photo-frame {
             width: 100%;
-            height: 280px;
-            background: #eee;
+            height: 300px;
+            background: #f0f0f0;
             border-radius: 20px;
-            margin-bottom: 25px;
             overflow: hidden;
             border: 5px solid white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            display: flex; justify-content: center; align-items: center;
         }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .final-text { font-size: 1.1rem; line-height: 1.6; color: var(--text-dark); }
+        .heart { color: var(--pink-soft); font-size: 2rem; margin-top: 20px; display: inline-block; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .btn-love {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.3);
-        }
-
-        .btn-love:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(255, 77, 109, 0.4);
-        }
-
-        #message {
-            margin-top: 20px;
-            font-style: italic;
-            color: var(--secondary);
-            min-height: 40px;
-            font-size: 0.95rem;
-        }
-
-        .heart-icon {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-top: 20px;
-            animation: beat 1.2s infinite;
-        }
-
-        @keyframes beat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
+        /* Posiciones de las 6 ranas escondidas (puedes ajustarlas) */
+        #frog1 { top: 15%; left: 10%; }
+        #frog2 { top: 60%; right: 15%; }
+        #frog3 { top: 30%; right: 25%; }
+        #frog4 { bottom: 10%; left: 20%; }
+        #frog5 { top: 5%; right: 5%; }
+        #frog6 { bottom: 25%; left: 50%; }
     </style>
 </head>
 <body>
 
-<div class="main-card">
-    <h1>Fran & Gabi</h1>
-    <div class="subtitle">6 años juntoo</div>
-
-    <div class="stats-container">
-        <div class="stat-box">
-            <span>2.190</span>
-            <label>Días</label>
-        </div>
-        <div class="stat-box">
-            <span>72</span>
-            <label>Meses</label>
-        </div>
-        <div class="stat-box">
-            <span>6</span>
-            <label>Años</label>
-        </div>
+    <h1>Felices 6 Años, mi burrita 🐸</h1>
+    <div class="subtitle">
+        Busca las 6 ranitas escondidas para ver tu regalo <br>
+        Encontradas: <span id="counter">0</span>/6
     </div>
 
-    <div class="photo-frame">
-        <img src="tu-mejor-foto.jpg" alt="Nosotrooo">
+    <div id="pop-up" class="pop-message">¡Encontraste una!</div>
+
+    <div class="frog-container" id="frog1" onclick="foundFrog(this, 'Te amo porque despues de 6 años sigues siendo mi burrita mona')"><div class="frog-img"></div></div>
+    <div class="frog-container" id="frog2" onclick="foundFrog(this, 'Te amo porque siempre estas ahi para mi.')"><div class="frog-img"></div></div>
+    <div class="frog-container" id="frog3" onclick="foundFrog(this, 'Te amo porque me cocinas cosas wuenas')"><div class="frog-img"></div></div>
+    <div class="frog-container" id="frog4" onclick="foundFrog(this, 'Te amo mi monita')"><div class="frog-img"></div></div>
+    <div class="frog-container" id="frog5" onclick="foundFrog(this, 'Te amo porque siempre vas a ser mi shiquilla.')"><div class="frog-img"></div></div>
+    <div class="frog-container" id="frog6" onclick="foundFrog(this, '"Te amo porque no siempre me entiendes pero tienes paciencia para quererme.')"><div class="frog-img"></div></div>
+
+    <div id="final-reward">
+        <h2>Las encontraste todas mi burrita</h2>
+        <div class="photo-frame">
+            <img src="foto.jpg" alt="Nosotrooo" onerror="this.style.display='none'; this.parentNode.style.background='var(--bg-accent)'; this.parentNode.innerText=''">
+        </div>
+        <div class="final-text">
+            <p>te amo mucho mi shiquillaaa</p>
+            <p>Gracias por estos 2.190 días, eres lo mejor que me ha pasado.</p>
+        </div>
+        <div class="heart">💖</div>
     </div>
 
-    <button class="btn-love" onclick="newMessage()">Ver una razón para amarte</button>
-    
-    <div id="message">Haz clic arriba...</div>
+    <script>
+        let frogsFound = 0;
+        const totalFrogs = 6;
+        const counterDisplay = document.getElementById('counter');
+        const popUp = document.getElementById('pop-up');
+        const finalReward = document.getElementById('final-reward');
 
-    <div class="heart-icon">❤️</div>
-</div>
+        function foundFrog(element, message) {
+            // Evita hacer clic doble en la misma rana
+            if (element.style.pointerEvents === 'none') return;
 
-<script>
-    const reasons = [
-        "Porque despues de 6 años sigues siendo mi burrita mona.",
-        "Porque siempre estas ahi para mi.",
-        "Porque me cocinas cosas wuenas",
-        "Porque te amo mi monita.",
-        "Porque siempre vas a ser mi shiquilla.",
-        "Porque no siempre me entiendes pero tienes paciencia para quererme."
-    ];
+            // 1. Animación y desaparición de la rana
+            element.style.transform = "scale(1.5) rotate(360deg)";
+            element.style.opacity = "0";
+            element.style.pointerEvents = "none"; // Ya no se puede clickear
 
-    function newMessage() {
-        const display = document.getElementById("message");
-        const random = Math.floor(Math.random() * reasons.length);
-        display.style.opacity = 0;
-        setTimeout(() => {
-            display.innerText = reasons[random];
-            display.style.opacity = 1;
-        }, 200);
-    }
-</script>
+            // 2. Aumentar contador
+            frogsFound++;
+            counterDisplay.innerText = frogsFound;
 
+            // 3. Mostrar mensaje emergente
+            popUp.innerText = message + " 🐸";
+            popUp.classList.add('show');
+            
+            // Ocultar mensaje después de 2 segundos
+            setTimeout(() => {
+                popUp.classList.remove('show');
+            }, 2000);
+
+            // 4. Comprobar si ganó
+            if (frogsFound === totalFrogs) {
+                setTimeout(() => {
+                    confettiEffect(); // Un poco de celebración
+                    finalReward.style.display = 'block';
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }, 1000);
+            }
+        }
+
+        // Efecto simple de confeti al ganar (opcional, para darle más alegría)
+        function confettiEffect() {
+            const colors = ['#a5d6a7', '#f8bbd0', '#fffbf0'];
+            for(let i=0; i<50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.width = '10px'; confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+                confetti.style.top = '-10px';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.borderRadius = '50%';
+                confetti.style.zIndex = '999';
+                document.body.appendChild(confetti);
+                
+                const animation = confetti.animate([
+                    { transform: 'translateY(0) rotate(0)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random()*360}deg)`, opacity: 0 }
+                ], {
+                    duration: Math.random() * 2000 + 1000,
+                    easing: 'cubic-bezier(.25,.46,.45,.94)'
+                });
+                animation.onfinish = () => confetti.remove();
+            }
+        }
+    </script>
 </body>
 </html>
